@@ -7,11 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="MongoDB.Driver" Version="2.25.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\Play.Common\src\Play.Common\Play.Common.csproj" />
+    <Folder Include="Controllers\" />
+    <Folder Include="Dtos\" />
   </ItemGroup>
 
 </Project>

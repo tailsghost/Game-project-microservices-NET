@@ -1,5 +1,5 @@
 ﻿
-namespace Play.Catalog.Service.Data;
+namespace Play.Common;
 
 public interface IEntity
 {

@@ -1,4 +1,6 @@
-﻿namespace Play.Catalog.Service.Data;
+﻿using Play.Common;
+
+namespace Play.Catalog.Service.Data;
 
 public class Item : IEntity
 {
