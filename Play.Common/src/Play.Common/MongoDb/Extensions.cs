@@ -18,10 +18,10 @@ public static class Extensions
         services.AddTransient(opt =>
         {
             var configuration = opt.GetService<IConfiguration>();
-            var serviceSettings = configuration.GetSection(nameof(ServiceSettings)).Get<ServiceSettings>();
-            var mongoDbSettings = configuration.GetSection(nameof(MongoDbSettings)).Get<MongoDbSettings>();
-            var mongoClient = new MongoClient(mongoDbSettings.ConnectionString);
-            return mongoClient.GetDatabase(serviceSettings.ServiceName);
+            var serviceSettings = configuration!.GetSection(nameof(ServiceSettings)).Get<ServiceSettings>();
+            var mongoDbSettings = configuration!.GetSection(nameof(MongoDbSettings)).Get<MongoDbSettings>();
+            var mongoClient = new MongoClient(mongoDbSettings!.ConnectionString);
+            return mongoClient.GetDatabase(serviceSettings!.ServiceName);
         });
 
         return services;
@@ -33,7 +33,7 @@ public static class Extensions
         services.AddTransient<IRepository<T>>(service =>
         {
             var database = service.GetService<IMongoDatabase>();
-            return new MongoRepository<T>(database, collectionName);
+            return new MongoRepository<T>(database!, collectionName);
         });
 
         return services;
